@@ -4,12 +4,14 @@
   "parameters": {
     "adminUsername": {
       "type": "string",
+      "defaultValue": "spark",
       "metadata": {
         "description": "User name for the Virtual Machine."
       }
     },
     "adminPassword": {
       "type": "securestring",
+      "defaultValue": "Transient00",
       "metadata": {
         "description": "Password for the Virtual Machine."
       }
