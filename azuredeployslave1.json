@@ -42,7 +42,7 @@
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
     "OSDiskName": "osdiskforlinuxsimple",
-    "nicName": "[variables('vmName')]_Nic",
+    "nicName":   "[concat(variables('vmName'), _Nic)]" ,
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
