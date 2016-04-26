@@ -67,18 +67,6 @@
         "accountType": "[variables('storageAccountType')]"
       }
     },
-    // {
-    //   "apiVersion": "[variables('apiVersion')]",
-    //   "type": "Microsoft.Network/publicIPAddresses",
-    //   "name": "[variables('publicIPAddressName')]",
-    //   "location": "[resourceGroup().location]",
-    //   "properties": {
-    //     "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-    //     "dnsSettings": {
-    //       "domainNameLabel": "[parameters('dnsLabelPrefix')]"
-    //     }
-    //   }
-    // },
     {
       "apiVersion": "[variables('apiVersion')]",
       "type": "Microsoft.Network/virtualNetworks",
