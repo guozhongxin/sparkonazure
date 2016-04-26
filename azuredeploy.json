@@ -18,6 +18,7 @@
     },
     "dnsLabelPrefix": {
       "type": "string",
+      "defaultValue": "linuxdns",
       "metadata": {
         "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
       }
@@ -36,7 +37,7 @@
     }
   },
   "variables": {
-    "storageAccountName": "linuxsparkblob",
+    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'linuxstorage')]",
     "dataDisk1VhdName": "datadisk1",
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
