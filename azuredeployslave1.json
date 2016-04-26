@@ -42,7 +42,7 @@
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
     "OSDiskName": "osdiskforlinuxsimple",
-    "nicName": "myVMNic",
+    "nicName": "[variables('vmName')]_Nic",
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
@@ -67,18 +67,18 @@
         "accountType": "[variables('storageAccountType')]"
       }
     },
-    {
-      "apiVersion": "[variables('apiVersion')]",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "[variables('publicIPAddressName')]",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-        "dnsSettings": {
-          "domainNameLabel": "[parameters('dnsLabelPrefix')]"
-        }
-      }
-    },
+    // {
+    //   "apiVersion": "[variables('apiVersion')]",
+    //   "type": "Microsoft.Network/publicIPAddresses",
+    //   "name": "[variables('publicIPAddressName')]",
+    //   "location": "[resourceGroup().location]",
+    //   "properties": {
+    //     "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+    //     "dnsSettings": {
+    //       "domainNameLabel": "[parameters('dnsLabelPrefix')]"
+    //     }
+    //   }
+    // },
     {
       "apiVersion": "[variables('apiVersion')]",
       "type": "Microsoft.Network/virtualNetworks",
