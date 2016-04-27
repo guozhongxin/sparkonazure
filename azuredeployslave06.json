@@ -16,6 +16,13 @@
         "description": "Password for the Virtual Machine."
       }
     },
+    "dnsLabelPrefix": {
+      "type": "string",
+      "defaultValue": "linuxdns",
+      "metadata": {
+        "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+      }
+    },
     "ubuntuOSVersion": {
       "type": "string",
       "defaultValue": "14.04.2-LTS",
@@ -179,5 +186,15 @@
         }
       }
     }
-  ]
+  ],
+  "outputs": {
+     "hostname": {
+         "type": "string",
+         "value": "[concat(parameters('dnsLabelPrefix'), '.', resourceGroup().location, '.cloudapp.azure.com')]"
+     },
+    "sshCommand": {
+      "type": "string",
+      "value": "[concat('ssh ', parameters('adminUsername'), '@', parameters('dnsLabelPrefix'), '.', resourceGroup().location, '.cloudapp.azure.com')]"
+    } 
+  }
 }
