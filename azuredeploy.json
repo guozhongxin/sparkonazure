@@ -34,23 +34,26 @@
       "metadata": {
         "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.5-LTS, 14.04.2-LTS, 15.10."
       }
+    },
+    "vmName" : {
+        "type": "string"
     }
   },
   "variables": {
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'salinuxvm')]",
-    "dataDisk1VhdName": "datadisk1",
+    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'linux')]",
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
-    "OSDiskName": "osdiskforlinuxsimple",
-    "nicName": "myVMNic",
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
     "storageAccountType": "Standard_LRS",
-    "publicIPAddressName": "myPublicIP",
     "publicIPAddressType": "Dynamic",
+    "vmName": "[parameters('vmName')]",
+    "nicName":   "[concat(parameters('vmName'), 'Nic')]" ,
+    "publicIPAddressName":  "[concat(parameters('vmName'), 'PublicIP')]",
+    "dataDisk1VhdName": "[concat(parameters('vmName'), 'data')]",
+    "OSDiskName": "[concat(parameters('vmName'), 'os')]",
     "vmStorageAccountContainerName": "vhds",
-    "vmName": "master",
     "vmSize": "Standard_D3",
     "virtualNetworkName": "MyVNET",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
@@ -73,10 +76,7 @@
       "name": "[variables('publicIPAddressName')]",
       "location": "[resourceGroup().location]",
       "properties": {
-        "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-        "dnsSettings": {
-          "domainNameLabel": "[parameters('dnsLabelPrefix')]"
-        }
+        "publicIPAllocationMethod": "[variables('publicIPAddressType')]"
       }
     },
     {
