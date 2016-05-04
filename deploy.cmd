@@ -1,4 +1,4 @@
-azure group create linuxcluster  -l eastasia --template-uri https://raw.githubusercontent.com/guozhongxin/sparkonazure/master/azuredeploy.json -d master 
+azure group create linuxcluster  -l eastasia --template-file https://raw.githubusercontent.com/guozhongxin/sparkonazure/master/azuredeploy.json -d master 
 azure group create linuxcluster  -l eastasia --template-uri https://raw.githubusercontent.com/guozhongxin/sparkonazure/master/azuredeploy.json -d slave01
 azure group create linuxcluster  -l eastasia --template-uri https://raw.githubusercontent.com/guozhongxin/sparkonazure/master/azuredeploy.json -d slave02
 azure group create linuxcluster  -l eastasia --template-uri https://raw.githubusercontent.com/guozhongxin/sparkonazure/master/azuredeploy.json -d slave03
